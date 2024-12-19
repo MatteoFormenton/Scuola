@@ -1,0 +1,11 @@
+[ {
+  "id" : 1,
+  "nome" : "Cipolla",
+  "cognome" : "Franco",
+  "materia" : "Storia"
+}, {
+  "id" : 2,
+  "nome" : "Carlo",
+  "cognome" : "Esposito",
+  "materia" : "Geografia"
+} ]

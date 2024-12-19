@@ -1,0 +1,13 @@
+[ {
+  "id" : 1,
+  "nome" : "Carlo",
+  "cognome" : "Cipolla",
+  "dataNascita" : "02.08.2004",
+  "classe" : "2A"
+}, {
+  "id" : 2,
+  "nome" : "Franco",
+  "cognome" : "Pazzo",
+  "dataNascita" : "02.03.2025",
+  "classe" : "3W"
+} ]

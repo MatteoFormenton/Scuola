@@ -1,0 +1,19 @@
+[ {
+  "id" : 1,
+  "nome" : "Alpinismo",
+  "descrizione" : "pericoloso",
+  "insegnanteId" : 0,
+  "studenteId" : [ 1 ]
+}, {
+  "id" : 1,
+  "nome" : "Archeologia",
+  "descrizione" : "Costosa",
+  "insegnanteId" : 2,
+  "studenteId" : [ 2, 1, 1 ]
+}, {
+  "id" : 2,
+  "nome" : "Coro",
+  "descrizione" : "impegnativo",
+  "insegnanteId" : 2,
+  "studenteId" : [ ]
+} ]
