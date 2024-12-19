@@ -1,0 +1,112 @@
+ Su StudentEditDialogController 116 student.setcorso(corsoStudenteField.getText());, stessa cosa con teacher
+ quando inserisco nome, cognome, classe e data nascita mi da errore, la data di nascita è il problema
+ Elimina edit da menubar se hai voglia
+
+ 
+ gestuisci tabella su courseeditdialog, isInputValid
+ searcbar devi togliere il cerca
+ sistemare tutto il teacher, non va delete
+ se aggiungo uno studento allo stesso corso viene fuori 2 volte
+ apri chatgpt e finisci mainapp 
+
+ @FXML
+private void handleOk() {
+    if (isInputValid()) {
+        try {
+            int id = Integer.parseInt(idStudenteField.getText());
+            student.setId(id);
+            student.setNome(nomeStudenteField.getText());
+            student.setCognome(cognomeStudenteField.getText());
+            student.setClasse(classeStudenteField.getText());
+            student.setDataNascita(dataNascitaField.getText());
+            
+            String corsiTesto = corsoStudenteField.getText().trim();
+            if (!corsiTesto.isEmpty()) {
+                String[] corsiArray = corsiTesto.split(","); // Dividi il testo in base alla virgola
+                if (corsiArray.length == 1) {
+                    // Se c'è solo un corso
+                    student.aggiungiCorsoSingolo(new Course(corsiArray[0].trim()));
+                } else {
+                    // Se ci sono più corsi
+                    List<Course> nuoviCorsi = new ArrayList<>();
+                    for (String corso : corsiArray) {
+                        nuoviCorsi.add(new Course(corso.trim()));
+                    }
+                    student.aggiungiCorsiMultipli(nuoviCorsi);
+                }
+            }
+
+            okClicked = true;
+            dialogStage.close();
+        } catch (NumberFormatException e) {
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.initOwner(dialogStage);
+            alert.setTitle("Errore");
+            alert.setHeaderText("Errore nei campi numerici.");
+            alert.setContentText("Assicurati di inserire un numero valido per l'ID dello studente.");
+            alert.showAndWait();
+        }
+    }
+}
+
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matteoformenton.controller.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleNew" text="New" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleOpen" text="Open..." />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSave" text="Save" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAs" text="Save as..." />
+              <MenuItem mnemonicParsing="false" onAction="#handleExit" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="260.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane prefHeight="375.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab text="Studenti">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab text="Insegnanti" />
+                  <Tab text="Corsi" />
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
+
+
+
+
+            <TabPane prefHeight="375.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab text="Studenti">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab text="Insegnanti" />
+                  <Tab text="Corsi" />
+              </tabs>
+            </TabPane>

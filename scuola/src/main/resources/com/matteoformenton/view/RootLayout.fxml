@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.matteoformenton.controller.RootLayoutController">
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <Menu mnemonicParsing="false" text="Studente">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleNewStudent" text="New" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenStudent" text="Open" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveStudent" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAsStudent" text="Save as" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Insegnante">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleNewTeacher" text="New" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenTeacher" text="Open" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveTeacher" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAsTeacher" text="Save as" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Corso">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#handleNewCourse" text="New" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleOpenCourse" text="Open" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveCourse" text="Save" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleSaveAsCourse" text="Save as" />
+                    </items>
+                  </Menu>
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="375.0" prefWidth="260.0" BorderPane.alignment="CENTER">
+         <children>
+            <TabPane fx:id="mainTabPane" prefHeight="695.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <tabs>
+                <Tab fx:id="studentTab" text="Studenti">
+                  <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                  </content>
+                </Tab>
+                <Tab fx:id="teacherTab" text="Insegnanti" />
+                  <Tab fx:id="corsitab" text="Corsi" />
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+   </center>
+</BorderPane>
